@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Maker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="container mx-auto p-4 max-w-2xl">
+        <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">Create New Invoice</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="billno" class="block text-sm font-medium text-slate-600 mb-1">Invoice No:</label>
+                    <input id="billno" placeholder="e.g., 372"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                    <label for="date" class="block text-sm font-medium text-slate-600 mb-1 mt-4">Billing Date:</label>
+                    <input id="date" type="date"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                    <label for="vehicle" class="block text-sm font-medium text-slate-600 mb-1 mt-4">Vehicle
+                        Number:</label>
+                    <input id="vehicle" placeholder="e.g., KA-01-AB-1234"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label for="quantity" class="block text-sm font-medium text-slate-600 mb-1">Number of Bags:</label>
+                    <input id="quantity" placeholder="e.g., 100" type="number"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                    <label for="amount" class="block text-sm font-medium text-slate-600 mb-1 mt-4">Total Amount (incl.
+                        tax):</label>
+                    <input id="amount" placeholder="e.g., 50000" type="number"
+                        class="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <div class="flex justify-between items-center mb-1">
+                    <label for="buyer" class="block text-sm font-medium text-slate-600">Buyer Address:</label>
+                    <button id="manage-address-btn"
+                        class="text-sm font-semibold text-blue-600 hover:text-blue-800">Manage Addresses</button>
+                </div>
+                <textarea id="buyer" placeholder="Enter Buyer Address or select from saved addresses." rows="4"
+                    class="w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button id="submit-btn"
+                    class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform transform hover:scale-105">
+                    Generate Bill
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="address-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg p-6 relative">
+            <button id="close-modal-btn"
+                class="absolute top-4 right-4 text-slate-500 hover:text-slate-800">&times;</button>
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Address Book</h3>
+
+            <div id="address-list" class="space-y-2 max-h-48 overflow-y-auto mb-4 pr-2">
+            </div>
+
+            <h4 class="text-lg font-semibold text-slate-700 mt-6 border-t pt-4">Add New Address</h4>
+            <div class="grid grid-cols-1 gap-4 mt-2">
+                <input id="address-id" type="hidden">
+                <input id="new-address-name" placeholder="Buyer Name"
+                    class="px-3 py-2 border border-slate-300 rounded-md">
+                <textarea id="new-address-text" placeholder="Full Address" rows="3"
+                    class="px-3 py-2 border border-slate-300 rounded-md"></textarea>
+                <input id="new-address-gst" placeholder="GST Number (Optional)"
+                    class="px-3 py-2 border border-slate-300 rounded-md">
+            </div>
+            <div class="mt-4 flex justify-end space-x-2">
+                <button id="clear-form-btn"
+                    class="bg-slate-200 text-slate-700 font-semibold py-2 px-4 rounded-md hover:bg-slate-300">Clear</button>
+                <button id="save-address-btn"
+                    class="bg-green-600 text-white font-bold py-2 px-4 rounded-md hover:bg-green-700">Save
+                    Address</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bill-maker.js"></script>
+</body>
+
+</html>

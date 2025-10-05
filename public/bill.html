@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Invoice</title>
+    <link rel="stylesheet" href="/css/bill.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-200">
+    <div class="container mx-auto p-4 sm:p-8">
+        <div class="mb-6 flex justify-center gap-4 print:hidden">
+            <a href="bill-maker.html"
+                class="bg-slate-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-slate-600 transition-transform transform hover:scale-105">Create
+                New Bill</a>
+            <button id="download-pdf"
+                class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105">
+                Download as PDF
+            </button>
+        </div>
+
+        <div id="invoice-content" class="main bg-white shadow-lg mx-auto max-w-4xl p-8 border">
+            <p class="tax-invoice">TAX INVOICE</p>
+
+            <div class="main">
+                <div class="top-div">
+                    <div class="top-left">
+                        <div class="seller">
+                            <div class="logo-box">
+                                <img class="logo" src="/images/logo.png" alt="Company Logo">
+                            </div>
+                            <div class="seller-address">
+                                <strong>SRI BALAJI ENTERPRISES</strong> <br>
+                                #10/60,3rd cross,3rd main, <br>
+                                Srinivasnagar, BSK 3rd stage,<br>
+                                Bangalore-560085, Karnataka<br>
+                                GST IN/UIP :29BAIPS9033A1ZL<br>
+                                MOBILE NO:9483949650<br>
+                                GMAIL: seelambalaji1969@gmail.com
+                            </div>
+                        </div>
+                        <div class="buyer">
+                            <strong>Buyer</strong><br>
+                            <span id="buyer"></span>
+                        </div>
+                    </div>
+                    <div class="top-right">
+                        <div class="one">
+                            <div class="left">
+                                Invoice No:<br>
+                                <span id="billno"></span>
+                            </div>
+                            <div class="right">
+                                Dated:<br>
+                                <span id="date"></span>
+                            </div>
+                        </div>
+                        <div class="two">
+                            <div class="left">E way no:</div>
+                            <div class="right">Modes/terms of payment</div>
+                        </div>
+                        <div class="three">
+                            <div class="left">Supplier's ref:</div>
+                            <div class="right">Delivery Note</div>
+                        </div>
+                        <div class="four">
+                            <div class="left">Buyer's order</div>
+                            <div class="right">Dated</div>
+                        </div>
+                        <div class="five">
+                            <div class="left">Road</div>
+                            <div class="right">Delivery-note Date</div>
+                        </div>
+                        <div class="six">
+                            <div class="left">Dispatched Through</div>
+                            <div class="right">Destination</div>
+                        </div>
+                        <div class="seven">
+                            <div class="left">Bill of landing / LL-RR</div>
+                            <div class="right">
+                                Motor Vehicle number:
+                                <span id="vehicle"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mid-div">
+                    <div class="content-heads">
+                        <div class="sl-no">Sl.No.</div>
+                        <div class="description">Description of Goods</div>
+                        <div class="HSN-SAC">HSN/SAC</div>
+                        <div class="gst-rate">GST Rate</div>
+                        <div class="quantity">Quantity in bags</div>
+                        <div class="rate">Rate</div>
+                        <div class="per">per</div>
+                        <div class="amount">Amount</div>
+                    </div>
+                    <div class="content">
+                        <div class="sl-no">1</div>
+                        <div class="description">Cement<br><br><br><br>Cgst@14% <br>Sgst@14%</div>
+                        <div class="HSN-SAC">2523</div>
+                        <div class="gst-rate">28%</div>
+                        <div class="quantity"><span id="quantity"></span></div>
+                        <div class="rate"><span id="rate"></span></div>
+                        <div class="per">Bag</div>
+                        <div class="amount">
+                            <span id="taxless"></span><br><br><br><br>
+                            <span id="taxAmount"></span><br>
+                            <span id="taxAmount2"></span>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <div class="sl-no"></div>
+                        <div class="description">Total</div>
+                        <div class="HSN-SAC"></div>
+                        <div class="gst-rate"></div>
+                        <div class="quantity"><span id="quantity2"></span></div>
+                        <div class="rate"></div>
+                        <div class="per"></div>
+                        <div class="amount"><strong><span id="amount"></span></strong></div>
+                    </div>
+                    <div class="total-words">Amount Chargeable in words: <span id="totalAmountWords"></span></div>
+                </div>
+
+                <div class="tax-div">
+                    <div class="tax-head">
+                        <div class="tax-desc">HSN/SAC</div>
+                        <div class="tax-value">Taxable Value</div>
+                        <div class="central-tax">
+                            <div class="tax-top">Central tax</div>
+                            <div class="tax-bottom">
+                                <div class="tax-bottom-element">Rate</div>
+                                <div class="tax-bottom-element">Amount</div>
+                            </div>
+                        </div>
+                        <div class="state-tax">
+                            <div class="tax-top">State tax</div>
+                            <div class="tax-bottom">
+                                <div class="tax-bottom-element">Rate</div>
+                                <div class="tax-bottom-element">Amount</div>
+                            </div>
+                        </div>
+                        <div class="total-tax">Total Tax Amount</div>
+                    </div>
+                    <div class="tax-hsn">
+                        <div class="tax-desc">2523</div>
+                        <div class="tax-value"><span id="taxless2"></span></div>
+                        <div class="central-tax">
+                            <div class="tax-bottom">
+                                <div class="tax-bottom-element">14%</div>
+                                <div class="tax-bottom-element"><span id="taxAmount3"></span></div>
+                            </div>
+                        </div>
+                        <div class="state-tax">
+                            <div class="tax-bottom">
+                                <div class="tax-bottom-element">14%</div>
+                                <div class="tax-bottom-element"><span id="taxAmount4"></span></div>
+                            </div>
+                        </div>
+                        <div class="total-tax"><span id="totalTax2"></span></div>
+                    </div>
+                    <div class="tax-total">
+                        <div class="tax-desc">Total</div>
+                        <div class="tax-value"><strong><span id="taxless3"></span></strong></div>
+                        <div class="central-tax">
+                            <div class="tax-bottom">
+                                <div class="tax-bottom-element"></div>
+                                <div class="tax-bottom-element"><strong><span id="taxAmount5"></span></strong></div>
+                            </div>
+                        </div>
+                        <div class="state-tax">
+                            <div class="tax-bottom">
+                                <div class="tax-bottom-element"></div>
+                                <div class="tax-bottom-element"><strong><span id="taxAmount6"></span></strong></div>
+                            </div>
+                        </div>
+                        <div class="total-tax"><strong><span id="totalTax1"></span></strong></div>
+                    </div>
+                </div>
+                <div class="tax-words">Tax amount in words: <span id="totalTaxWords"></span></div>
+
+                <div class="bottom-div">
+                    <div class="declaration">
+                        <div class="dec-left">
+                            <strong>Declaration:</strong><br>
+                            1. 18% Interest will be charged on all invoice not paid within the said time from the date
+                            of invoice. <br>
+                            2. Goods once sold will not be taken back or exchanged. our responsibility ceases soon after
+                            the goods.
+                        </div>
+                        <div class="dec-right">
+                            <strong>Company’s Bank Details:</strong><br>
+                            BankName : AXIS BANK.<br>
+                            A/c No. :920020056606334
+                            Branch & IFS Code :UTIB0003190
+                        </div>
+                    </div>
+                    <div class="sign-seal">
+                        <div class="cust-sign">Customer’s Seal and Signature</div>
+                        <div class="seller-sign">
+                            For Sri Balaji Enterprises
+                            <br><br><br><br>
+                            Authorised Signatory
+                        </div>
+                    </div>
+                </div>
+                <p class="conclusion">
+                    SUBJECT TO BANGALORE JURISDICTION<br>
+                    This is a Computer Generated Invoice
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/js/bill-page.js"></script>
+</body>
+
+</html>

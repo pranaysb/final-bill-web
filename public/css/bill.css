@@ -1,0 +1,276 @@
+/* General invoice styling */
+.main {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #000;
+}
+
+.tax-invoice {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+/* --- Top Section --- */
+.top-div {
+    display: flex;
+    border: 1px solid black;
+}
+
+.top-left,
+.top-right {
+    width: 50%;
+    padding: 5px;
+}
+
+.top-left {
+    border-right: 1px solid black;
+}
+
+.seller {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.logo-box {
+    margin-right: 10px;
+}
+
+.logo {
+    width: 80px;
+    /* Adjust logo size */
+    height: auto;
+}
+
+.buyer {
+    padding-top: 5px;
+}
+
+.top-right>div {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.top-right>div:last-child {
+    border-bottom: none;
+}
+
+.top-right .left,
+.top-right .right {
+    width: 50%;
+    padding: 5px;
+}
+
+.top-right .left {
+    border-right: 1px solid black;
+}
+
+/* --- Middle Section (Items table) --- */
+.mid-div {
+    border: 1px solid black;
+    border-top: none;
+}
+
+.content-heads,
+.content,
+.total {
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.mid-div>div>div {
+    padding: 5px;
+    border-right: 1px solid black;
+}
+
+.mid-div>div>div:last-child {
+    border-right: none;
+}
+
+.sl-no {
+    width: 5%;
+}
+
+.description {
+    width: 35%;
+    text-align: left;
+}
+
+.HSN-SAC {
+    width: 10%;
+}
+
+.gst-rate {
+    width: 8%;
+}
+
+.quantity {
+    width: 10%;
+}
+
+.rate {
+    width: 11%;
+    text-align: right;
+}
+
+.per {
+    width: 6%;
+}
+
+.amount {
+    width: 15%;
+    text-align: right;
+}
+
+.total-words,
+.tax-words {
+    padding: 5px;
+    border-bottom: 1px solid black;
+    font-style: italic;
+}
+
+/* --- Tax Section --- */
+.tax-div {
+    border: 1px solid black;
+    border-top: none;
+}
+
+.tax-head,
+.tax-hsn,
+.tax-total {
+    display: flex;
+    text-align: center;
+}
+
+.tax-head {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.tax-total {
+    font-weight: bold;
+    border-top: 1px solid black;
+}
+
+.tax-div>div>div {
+    padding: 5px;
+    border-right: 1px solid black;
+}
+
+.tax-div>div>div:last-child {
+    border-right: none;
+}
+
+.tax-desc {
+    width: 20%;
+}
+
+.tax-value {
+    width: 20%;
+    text-align: right;
+}
+
+.central-tax,
+.state-tax {
+    width: 25%;
+}
+
+.total-tax {
+    width: 10%;
+}
+
+.tax-top {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.tax-bottom {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tax-bottom>div {
+    width: 50%;
+}
+
+/* --- Bottom Section --- */
+.bottom-div {
+    border: 1px solid black;
+    border-top: none;
+}
+
+.declaration {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+.dec-left {
+    width: 60%;
+    border-right: 1px solid black;
+    padding-right: 5px;
+}
+
+.dec-right {
+    width: 40%;
+    padding-left: 5px;
+}
+
+.sign-seal {
+    display: flex;
+    height: 100px;
+    /* Provide space for signature */
+}
+
+.cust-sign {
+    width: 60%;
+    padding: 5px;
+    border-right: 1px solid black;
+}
+
+.seller-sign {
+    width: 40%;
+    padding: 5px;
+    text-align: right;
+}
+
+.conclusion {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    padding-top: 5px;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .main {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+    }
+
+    .print\:hidden {
+        display: none;
+    }
+}
