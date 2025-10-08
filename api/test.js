@@ -1,3 +1,4 @@
 export default function handler(req, res) {
-    res.status(200).json({ message: 'Hello from the test API!' });
+    console.log('TEST API WAS HIT');
+    res.status(200).json({ message: 'API is working!', timestamp: new Date().toISOString() });
 }
